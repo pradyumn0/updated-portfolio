@@ -29,6 +29,22 @@ const ContactSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const navigate = useNavigate()
 
+  const handleSubmit(e){
+  e.preventDefault();
+
+  const myForm = e.target;
+  const formData = new FormData(myForm);
+
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams( Array.from(formData.entries()) as [string, string][]).toString()
+  })
+    .then(() => console.log("Form successfully submitted"))
+    .catch(error => alert(error));
+};
+
+document.querySelector("form").addEventListener("submit", handleSubmit);
   return (
     <section id="contact" className="section-padding bg-card/50" ref={ref}>
       <div className="container mx-auto max-w-4xl">
@@ -100,6 +116,7 @@ const ContactSection = () => {
             //   e.preventDefault();
             //   navigate("/thank-you");
             // }}
+            onSubmit={(e)=>handleSubmit(e)}
             className="glass-card rounded-2xl p-6 space-y-4"
           >
             {/* Required hidden input */}
@@ -134,7 +151,7 @@ const ContactSection = () => {
               />
             </div>
 
-            {/* <div>
+            <div>
               <label className="text-sm font-medium text-foreground block mb-1.5">
                 Message
               </label>
@@ -145,7 +162,7 @@ const ContactSection = () => {
                 placeholder="Tell me about your project..."
                 className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
               />
-            </div> */}
+            </div>
 
             <button
               type="submit"
