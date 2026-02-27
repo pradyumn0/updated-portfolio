@@ -29,7 +29,7 @@ const ContactSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const navigate = useNavigate()
 
-  const handleSubmit(e){
+  function handleSubmit(e){
   e.preventDefault();
 
   const myForm = e.target;
