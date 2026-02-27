@@ -93,7 +93,7 @@ const ContactSection = () => {
           <form
             name="contact"
             method="POST"
-            action="/thank-you"
+            // action="/thank-you"
             data-netlify="true"
             // data-netlify-honeypot="bot-field"
             // onSubmit={(e) => {
@@ -134,7 +134,7 @@ const ContactSection = () => {
               />
             </div>
 
-            <div>
+            {/* <div>
               <label className="text-sm font-medium text-foreground block mb-1.5">
                 Message
               </label>
@@ -145,7 +145,7 @@ const ContactSection = () => {
                 placeholder="Tell me about your project..."
                 className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
               />
-            </div>
+            </div> */}
 
             <button
               type="submit"
