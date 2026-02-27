@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Mail, Linkedin, Github, Send } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const socials = [
   {
@@ -26,6 +27,7 @@ const socials = [
 const ContactSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const navigate = useNavigate()
 
   return (
     <section id="contact" className="section-padding bg-card/50" ref={ref}>
@@ -94,6 +96,10 @@ const ContactSection = () => {
             action="/thank-you"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
+            onSubmit={(e) => {
+              e.preventDefault();
+              navigate("/thank-you");
+            }}
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -152,7 +158,6 @@ const ContactSection = () => {
               Send Message
             </button>
           </motion.form>
-          
         </div>
       </div>
     </section>
