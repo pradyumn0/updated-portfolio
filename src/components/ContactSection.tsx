@@ -44,7 +44,6 @@ const ContactSection = () => {
     .catch(error => alert(error));
 };
 
-document.querySelector("form").addEventListener("submit", handleSubmit);
   return (
     <section id="contact" className="section-padding bg-card/50" ref={ref}>
       <div className="container mx-auto max-w-4xl">
