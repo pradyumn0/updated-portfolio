@@ -90,26 +90,23 @@ const ContactSection = () => {
 
           {/* Quick message form */}
           {/* Quick message form */}
-          <motion.form
+          <form
             name="contact"
             method="POST"
             action="/thank-you"
             data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            onSubmit={(e) => {
-              e.preventDefault();
-              navigate("/thank-you");
-            }}
-            initial={{ opacity: 0, x: 30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            // data-netlify-honeypot="bot-field"
+            // onSubmit={(e) => {
+            //   e.preventDefault();
+            //   navigate("/thank-you");
+            // }}
             className="glass-card rounded-2xl p-6 space-y-4"
           >
             {/* Required hidden input */}
             <input type="hidden" name="form-name" value="contact" />
 
             {/* Honeypot field */}
-            <input type="hidden" name="bot-field" />
+            {/* <input type="hidden" name="bot-field" /> */}
 
             <div>
               <label className="text-sm font-medium text-foreground block mb-1.5">
@@ -157,7 +154,7 @@ const ContactSection = () => {
               <Send size={16} />
               Send Message
             </button>
-          </motion.form>
+          </form>
         </div>
       </div>
     </section>
