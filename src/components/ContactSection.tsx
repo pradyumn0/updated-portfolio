@@ -87,45 +87,63 @@ const ContactSection = () => {
           </motion.div>
 
           {/* Quick message form */}
+          {/* Quick message form */}
           <motion.form
+            name="contact"
+            method="POST"
+            action="/thank-you"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.3 }}
             className="glass-card rounded-2xl p-6 space-y-4"
-            // onSubmit={handleSubmit}
-            data-netlify="true"
           >
+            {/* Required hidden input */}
             <input type="hidden" name="form-name" value="contact" />
+
+            {/* Honeypot field */}
+            <input type="hidden" name="bot-field" />
+
             <div>
               <label className="text-sm font-medium text-foreground block mb-1.5">
                 Name
               </label>
               <input
                 type="text"
+                name="name"
+                required
                 placeholder="Your name"
                 className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
               />
             </div>
+
             <div>
               <label className="text-sm font-medium text-foreground block mb-1.5">
                 Email
               </label>
               <input
                 type="email"
+                name="email"
+                required
                 placeholder="you@company.com"
                 className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
               />
             </div>
+
             <div>
               <label className="text-sm font-medium text-foreground block mb-1.5">
                 Message
               </label>
               <textarea
                 rows={4}
+                name="message"
+                required
                 placeholder="Tell me about your project..."
                 className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
               />
             </div>
+
             <button
               type="submit"
               className="w-full gradient-bg text-primary-foreground py-3 rounded-xl font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-blue"
@@ -134,6 +152,7 @@ const ContactSection = () => {
               Send Message
             </button>
           </motion.form>
+          
         </div>
       </div>
     </section>
